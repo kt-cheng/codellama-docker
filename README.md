@@ -30,13 +30,17 @@ Keep in mind that the links expire after 24 hours and a certain amount of downlo
 
 [comment]: <> (Access on Hugging Face, We are also providing downloads on Hugging Face. You must first request a download from the Meta website using the same email address as your Hugging Face account. After doing so, you can request access to any of the models on Hugging Face and within 1-2 days your account will be granted access to all versions.)
 
-## Setup
+## Run with docker
 
-In a conda env with PyTorch / CUDA available, clone the repo and run in the top-level directory:
+In a GPU available environment, clone this repo and run in the top-level directory:
 
 ```
-pip install -e .
+docker build -t codellama_poc .
+
+docker run -d --name codellama --gpus all codellama_poc
 ```
+
+Then, you can run the following inside the `codellama` container
 
 ## Inference
 
